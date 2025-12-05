@@ -10,7 +10,6 @@ type AuthStep = 'login' | 'otp' | 'chat';
 export function ChatApp() {
   const [authStep, setAuthStep] = useState<AuthStep>('login');
   const [mobileNumber, setMobileNumber] = useState('');
-  const [isConnected, setIsConnected] = useState(true);
 
   const {
     authState,
@@ -19,6 +18,7 @@ export function ChatApp() {
     selectedUser,
     isLoading,
     error,
+    isConnected,
     login,
     verifyOtp,
     fetchUsers,
