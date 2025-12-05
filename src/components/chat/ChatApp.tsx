@@ -96,21 +96,19 @@ export function ChatApp() {
         />
       </div>
 
-      {/* Mobile sidebar toggle */}
-      <div className="md:hidden absolute top-0 left-0 right-0 z-50">
-        {!selectedUser && (
-          <div className="h-screen">
-            <UsersSidebar
-              users={users}
-              currentUser={authState.user}
-              selectedUser={selectedUser}
-              isConnected={isConnected}
-              onSelectUser={selectUser}
-              onLogout={handleLogout}
-            />
-          </div>
-        )}
-      </div>
+      {/* Mobile sidebar - full screen when no user selected */}
+      {!selectedUser && (
+        <div className="md:hidden fixed inset-0 z-50 bg-background">
+          <UsersSidebar
+            users={users}
+            currentUser={authState.user}
+            selectedUser={selectedUser}
+            isConnected={isConnected}
+            onSelectUser={selectUser}
+            onLogout={handleLogout}
+          />
+        </div>
+      )}
 
       {/* Chat Area */}
       <div className="flex-1 flex flex-col min-w-0">
